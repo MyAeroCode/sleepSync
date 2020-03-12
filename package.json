@@ -1,7 +1,7 @@
 {
   "name": "sleepSync",
   "version": "1.0.0",
-  "description": "",
+  "description": "cross-platform synchronous sleep",
   "main": "out/index.js",
   "types": "out/index.d.ts",
   "scripts": {
@@ -13,7 +13,7 @@
     "url": "git+https://github.com/MyAeroCode/sleepSync.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "aerocode",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/MyAeroCode/sleepSync/issues"
