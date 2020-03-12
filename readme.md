@@ -1,7 +1,7 @@
 ### Cross-Platform sleepSync
 
 - [x] Unix / Linux
-- [ ] Windows
+- [x] Windows
 - [ ] Mac
 
 ```ts
