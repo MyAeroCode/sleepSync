@@ -7,7 +7,7 @@ include_directories(${CMAKE_JS_INC})
 
 # Selective Compile
 if (WIN32)
-    file(GLOB SOURCE_FILES "./src/sleep-sync-win32.cpp")
+    file(GLOB SOURCE_FILES "./src/sleep-sync-win.cpp")
 endif (WIN32)
 if (UNIX)
     file(GLOB SOURCE_FILES "./src/sleep-sync-unix.cpp")
