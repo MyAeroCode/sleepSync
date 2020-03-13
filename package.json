@@ -1,6 +1,6 @@
 {
     "name": "waait-sync",
-    "version": "1.0.0",
+    "version": "1.0.4",
     "description": "cross-platform synchronous sleep utils",
     "main": "out/index.js",
     "types": "out/index.d.ts",
@@ -13,9 +13,14 @@
         "url": "git+https://github.com/MyAeroCode/waait-sync.git"
     },
     "keywords": [
-        "waitSync",
-        "sleepSync",
-        "pauseSync"
+        "sync",
+        "wait",
+        "sleep",
+        "pause",
+        "wait key",
+        "wait sync",
+        "sleep sync",
+        "pause sync"
     ],
     "author": "aerocode",
     "license": "ISC",
