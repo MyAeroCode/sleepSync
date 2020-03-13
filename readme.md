@@ -8,6 +8,19 @@
 
 ---
 
+### Installation
+
+require :
+
+- cmake
+- c/c++ compiler
+
+```shell
+npm install sleepSync
+```
+
+---
+
 ### Examples
 
 #### uwait
@@ -78,12 +91,3 @@ for (let i = 0; i < 10; i++) {
 }
 ```
 
----
-
-### Installation
-
-Install `cmake` first, then.
-
-```shell
-npm install sleepSync
-```
