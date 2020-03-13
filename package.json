@@ -1,5 +1,5 @@
 {
-    "name": "sleepSync",
+    "name": "sleep-sync",
     "version": "1.0.0",
     "description": "cross-platform synchronous sleep utils",
     "main": "out/index.js",

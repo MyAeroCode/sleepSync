@@ -26,7 +26,7 @@ npm install sleepSync
 #### uwait
 
 ```ts
-import { uwait } from "sleepSync";
+import { waitConfirm } from "sleep-sync";
 
 for (let i = 0; i < 10; i++) {
     console.log(i);
@@ -37,7 +37,7 @@ for (let i = 0; i < 10; i++) {
 #### wait
 
 ```ts
-import { wait } from "sleepSync";
+import { waitConfirm } from "sleep-sync";
 
 for (let i = 0; i < 10; i++) {
     console.log(i);
@@ -48,7 +48,7 @@ for (let i = 0; i < 10; i++) {
 #### waitKey
 
 ```ts
-import { waitKey } from "sleepSync";
+import { waitConfirm } from "sleep-sync";
 
 for (let i = 0; i < 10; i++) {
     console.log(i);
@@ -59,7 +59,7 @@ for (let i = 0; i < 10; i++) {
 #### waitLine
 
 ```ts
-import { waitLine } from "sleepSync";
+import { waitConfirm } from "sleep-sync";
 
 for (let i = 0; i < 10; i++) {
     console.log(i);
@@ -70,7 +70,7 @@ for (let i = 0; i < 10; i++) {
 #### waitEnter
 
 ```ts
-import { waitEnter } from "sleepSync";
+import { waitConfirm } from "sleep-sync";
 
 for (let i = 0; i < 10; i++) {
     console.log(i);
@@ -81,7 +81,7 @@ for (let i = 0; i < 10; i++) {
 #### waitConfirm
 
 ```ts
-import { waitConfirm } from "sleepSync";
+import { waitConfirm } from "sleep-sync";
 
 for (let i = 0; i < 10; i++) {
     console.log(i);
