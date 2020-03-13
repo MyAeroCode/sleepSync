@@ -71,8 +71,3 @@ export function waitEnter(timelimit?: number): void {
 export function waitConfirm(ystr: string, nstr?: string, timelimit?: number): boolean {
     return addon.waitConfirm(ystr, nstr, timelimit);
 }
-
-for (let i = 0; i < 5; i++) {
-    console.log(i);
-    if (!waitConfirm("go")) break;
-}
