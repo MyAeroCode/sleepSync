@@ -16,7 +16,7 @@ require :
 - c/c++ compiler
 
 ```shell
-npm install sleepSync
+npm install waait-sync
 ```
 
 ---
@@ -26,7 +26,7 @@ npm install sleepSync
 #### uwait
 
 ```ts
-import { waitConfirm } from "sleep-sync";
+import { waitConfirm } from "waait-sync";
 
 for (let i = 0; i < 10; i++) {
     console.log(i);
@@ -37,7 +37,7 @@ for (let i = 0; i < 10; i++) {
 #### wait
 
 ```ts
-import { waitConfirm } from "sleep-sync";
+import { waitConfirm } from "waait-sync";
 
 for (let i = 0; i < 10; i++) {
     console.log(i);
@@ -48,7 +48,7 @@ for (let i = 0; i < 10; i++) {
 #### waitKey
 
 ```ts
-import { waitConfirm } from "sleep-sync";
+import { waitConfirm } from "waait-sync";
 
 for (let i = 0; i < 10; i++) {
     console.log(i);
@@ -59,7 +59,7 @@ for (let i = 0; i < 10; i++) {
 #### waitLine
 
 ```ts
-import { waitConfirm } from "sleep-sync";
+import { waitConfirm } from "waait-sync";
 
 for (let i = 0; i < 10; i++) {
     console.log(i);
@@ -70,7 +70,7 @@ for (let i = 0; i < 10; i++) {
 #### waitEnter
 
 ```ts
-import { waitConfirm } from "sleep-sync";
+import { waitConfirm } from "waait-sync";
 
 for (let i = 0; i < 10; i++) {
     console.log(i);
@@ -81,7 +81,7 @@ for (let i = 0; i < 10; i++) {
 #### waitConfirm
 
 ```ts
-import { waitConfirm } from "sleep-sync";
+import { waitConfirm } from "waait-sync";
 
 for (let i = 0; i < 10; i++) {
     console.log(i);
