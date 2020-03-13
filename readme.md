@@ -26,7 +26,7 @@ npm install waait-sync
 #### uwait
 
 ```ts
-import { waitConfirm } from "waait-sync";
+import { uwait } from "waait-sync";
 
 for (let i = 0; i < 10; i++) {
     console.log(i);
@@ -37,7 +37,7 @@ for (let i = 0; i < 10; i++) {
 #### wait
 
 ```ts
-import { waitConfirm } from "waait-sync";
+import { wait } from "waait-sync";
 
 for (let i = 0; i < 10; i++) {
     console.log(i);
@@ -48,7 +48,7 @@ for (let i = 0; i < 10; i++) {
 #### waitKey
 
 ```ts
-import { waitConfirm } from "waait-sync";
+import { waitKey } from "waait-sync";
 
 for (let i = 0; i < 10; i++) {
     console.log(i);
@@ -59,7 +59,7 @@ for (let i = 0; i < 10; i++) {
 #### waitLine
 
 ```ts
-import { waitConfirm } from "waait-sync";
+import { waitLine } from "waait-sync";
 
 for (let i = 0; i < 10; i++) {
     console.log(i);
@@ -70,7 +70,7 @@ for (let i = 0; i < 10; i++) {
 #### waitEnter
 
 ```ts
-import { waitConfirm } from "waait-sync";
+import { waitEnter } from "waait-sync";
 
 for (let i = 0; i < 10; i++) {
     console.log(i);
