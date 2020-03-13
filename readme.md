@@ -3,14 +3,14 @@
 |              | uwait | wait | waitKey | waitLine | waitEnter | waitConfirm |
 | ------------ | ----- | ---- | ------- | -------- | --------- | ----------- |
 | Unix / Linux | v     | v    | v       | v        | v         | v           |
-| Windows      |       |      |         |          |           |             |
+| Windows      | v     | v    | v       | v        | v         | v           |
 | Mac          |       |      |         |          |           |             |
 
 ---
 
-#### Examples
+### Examples
 
-##### uwait
+#### uwait
 
 ```ts
 import { uwait } from "sleepSync";
@@ -21,7 +21,7 @@ for (let i = 0; i < 10; i++) {
 }
 ```
 
-##### wait
+#### wait
 
 ```ts
 import { wait } from "sleepSync";
@@ -32,7 +32,7 @@ for (let i = 0; i < 10; i++) {
 }
 ```
 
-##### waitKey
+#### waitKey
 
 ```ts
 import { waitKey } from "sleepSync";
@@ -43,7 +43,7 @@ for (let i = 0; i < 10; i++) {
 }
 ```
 
-##### waitLine
+#### waitLine
 
 ```ts
 import { waitLine } from "sleepSync";
@@ -54,7 +54,7 @@ for (let i = 0; i < 10; i++) {
 }
 ```
 
-##### waitEnter
+#### waitEnter
 
 ```ts
 import { waitEnter } from "sleepSync";
@@ -65,7 +65,7 @@ for (let i = 0; i < 10; i++) {
 }
 ```
 
-##### waitConfirm
+#### waitConfirm
 
 ```ts
 import { waitConfirm } from "sleepSync";
@@ -80,7 +80,7 @@ for (let i = 0; i < 10; i++) {
 
 ---
 
-#### Installation
+### Installation
 
 Install `cmake` first, then.
 
