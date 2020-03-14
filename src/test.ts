@@ -1,5 +1,11 @@
-import { uwait, wait, waitKey, waitLine, waitEnter, waitConfirm } from "./index";
+//
+// Require test.
+const waitModule = require("./index");
+console.log(waitModule);
 
+//
+// Import test.
+import { uwait, wait, waitKey, waitLine, waitEnter, waitConfirm } from "./index";
 for(let i=0; i<10; i++){
     console.log(i);
 
