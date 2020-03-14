@@ -34,6 +34,8 @@ npm install waait-sync
 
 ```ts
 import { uwait } from "waait-sync";
+// or
+const uwait = require("waait-sync").uwait;
 
 for (let i = 0; i < 10; i++) {
     console.log(i);
@@ -48,6 +50,8 @@ for (let i = 0; i < 10; i++) {
 
 ```ts
 import { wait } from "waait-sync";
+// or
+const wait = require("waait-sync").wait;
 
 for (let i = 0; i < 10; i++) {
     console.log(i);
@@ -62,18 +66,19 @@ for (let i = 0; i < 10; i++) {
 
 ```ts
 import { waitKey } from "waait-sync";
+// or
+const waitKey = require("waait-sync").waitKey;
 
 for (let i = 0; i < 10; i++) {
     console.log(i);
 
     //
-    // Wait for a key with the given ASCII number to be pressed.
-    // The code below waits for the ESC(ASCII 27) key.
+    // Wait for a key with the given ascii number to be pressed.
+    // The code below waits for the ESC(ascii 27) key.
     waitKey(27);
 
     //
     // Wait only 333ms.
-    // Returns true if ESC is pressed.
     // Returns false if timeout.
     waitKey(27, 333);
 }
@@ -83,6 +88,8 @@ for (let i = 0; i < 10; i++) {
 
 ```ts
 import { waitLine } from "waait-sync";
+// or
+const waitLine = require("waait-sync").waitLine;
 
 for (let i = 0; i < 10; i++) {
     console.log(i);
@@ -93,13 +100,12 @@ for (let i = 0; i < 10; i++) {
 
     //
     // Wait only 333ms.
-    // Returns true if "Hello, World!" is entered.
     // Returns false if timeout.
     waitLine("Hello, World!", 333);
 
     //
-    // Unicode support.
-    waitLine("안녕, 세상!");
+    // unicode support.
+    waitLine("안녕하세요!");
 }
 ```
 
@@ -107,6 +113,8 @@ for (let i = 0; i < 10; i++) {
 
 ```ts
 import { waitEnter } from "waait-sync";
+// or
+const waitEnter = require("waait-sync").waitEnter;
 
 for (let i = 0; i < 10; i++) {
     console.log(i);
@@ -117,7 +125,6 @@ for (let i = 0; i < 10; i++) {
 
     //
     // Wait only 333ms.
-    // Returns true if Enter is pressed.
     // Returns false if timeout.
     waitEnter(333);
 }
@@ -127,6 +134,8 @@ for (let i = 0; i < 10; i++) {
 
 ```ts
 import { waitConfirm } from "waait-sync";
+// or
+const waitConfirm = require("waait-sync").waitConfirm;
 
 for (let i = 0; i < 10; i++) {
     console.log(i);
@@ -139,13 +148,11 @@ for (let i = 0; i < 10; i++) {
     //
     // Returns true if "y" is entered.
     // Returns false if "n" is entered.
-    // Retry if anything else is entered.
+    // Retry if anything esle is entered.
     if (waitConfirm("y", "n")) break;
 
     //
     // Wait only 333ms.
-    // Returns true if "y" is entered.
-    // Returns false if timeout or anything else is entered.
     if (waitConfirm("y", undefined, 333)) break;
 
     //
