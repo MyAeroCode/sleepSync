@@ -11,7 +11,7 @@
 Unicode Support :
 
 - [ ] Unix / Linux
-- [v] Windows
+- [x] Windows
 - [ ] Mac
 
 ---
