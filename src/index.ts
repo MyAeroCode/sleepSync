@@ -71,3 +71,15 @@ export function waitEnter(timelimit?: number): boolean {
 export function waitConfirm(ystr: string, nstr?: string, timelimit?: number): boolean {
     return addon.waitConfirm(ystr, nstr, timelimit);
 }
+
+/**
+ * require support.
+ */
+module.exports = {
+    uwait,
+    wait,
+    waitKey,
+    waitLine,
+    waitEnter,
+    waitConfirm
+};
