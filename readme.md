@@ -6,6 +6,14 @@
 | Windows      | v     | v    | v       | v        | v         | v           |
 | Mac          |       |      |         |          |           |             |
 
+#### TODO
+
+Unicode Support :
+
+- [ ] Unix / Linux
+- [v] Windows
+- [ ] Mac
+
 ---
 
 ### Installation
@@ -30,7 +38,10 @@ import { uwait } from "waait-sync";
 
 for (let i = 0; i < 10; i++) {
     console.log(i);
-    uwait(333); // wait 333 μs.
+
+    //
+    // Wait 333 μs.
+    uwait(333);
 }
 ```
 
@@ -41,7 +52,10 @@ import { wait } from "waait-sync";
 
 for (let i = 0; i < 10; i++) {
     console.log(i);
-    wait(333); // wait 333 ms.
+
+    //
+    // Wait 333 ms.
+    wait(333);
 }
 ```
 
@@ -52,7 +66,16 @@ import { waitKey } from "waait-sync";
 
 for (let i = 0; i < 10; i++) {
     console.log(i);
-    waitKey(27); // wait ESC(ascii 27).
+
+    //
+    // Wait for a key with the given ascii number to be pressed.
+    // The code below waits for the ESC(ascii 27) key.
+    waitKey(27);
+
+    //
+    // Wait only 333ms.
+    // Returns false if timeout.
+    waitKey(27, 333);
 }
 ```
 
@@ -63,7 +86,19 @@ import { waitLine } from "waait-sync";
 
 for (let i = 0; i < 10; i++) {
     console.log(i);
-    waitLine("Hello, World!"); // wait "Hello, World!"
+
+    //
+    // Wait for "Hello, World!" To be entered.
+    waitLine("Hello, World!");
+
+    //
+    // Wait only 333ms.
+    // Returns false if timeout.
+    waitLine("Hello, World!", 333);
+
+    //
+    // unicode support.
+    waitLine("안녕하세요!");
 }
 ```
 
@@ -74,7 +109,15 @@ import { waitEnter } from "waait-sync";
 
 for (let i = 0; i < 10; i++) {
     console.log(i);
+
+    //
+    // Wait for the Enter key to be pressed.
     waitEnter();
+
+    //
+    // Wait only 333ms.
+    // Returns false if timeout.
+    waitEnter(333);
 }
 ```
 
@@ -86,8 +129,24 @@ import { waitConfirm } from "waait-sync";
 for (let i = 0; i < 10; i++) {
     console.log(i);
 
-    console.log("stop? y/n");
+    //
+    // Returns true if "y" is entered.
+    // Returns false if anything else is entered.
+    if (waitConfirm("y")) break;
+
+    //
+    // Returns true if "y" is entered.
+    // Returns false if "n" is entered.
+    // Retry if anything esle is entered.
     if (waitConfirm("y", "n")) break;
+
+    //
+    // Wait only 333ms.
+    if (waitConfirm("y", undefined, 333)) break;
+
+    //
+    // Unicode support.
+    if (waitConfirm("네", "아니요")) break;
 }
 ```
 
