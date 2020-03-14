@@ -7,7 +7,7 @@ namespace Wait {
     LARGE_INTEGER freq;
     const uint64_t US = 1'000'000;
     const uint64_t MS = 1'000;
-    const size_t size = 512;
+    const size_t BUF_SIZE = 512;
 
     /** Window ver, get elapsed count. */
     inline uint64_t window_get_elapsed(const LARGE_INTEGER& beg, const uint64_t rate){
@@ -28,21 +28,21 @@ namespace Wait {
     }
 
     /** clear buffer. */
-    inline void window_clear_input(char *buf, size_t &idx, const size_t &size){
+    inline void window_clear_input(char16_t *buf, size_t &idx, const size_t &size){
+        for(size_t i=0; i<idx; i++){
+            buf[i] = 0;
+        }
         idx = 0;
-        memset(buf, 0, size);
     }
 
     /** non-block read, Return true if enter is pressed. */
-    inline bool window_read_input(char *buf, size_t &idx, const size_t &size){
+    inline bool window_read_input(char16_t *buf, size_t &idx, const size_t &size){
         if(_kbhit()){
-            auto c = _getche();
+            auto c = _getwche();
             if(c == 8){
                 // backspace.
                 if(idx != 0) {
                     buf[--idx] = 0;
-                    putchar(' ');
-                    putchar('\b');
                 }
             }
             else if(c == 13){
@@ -53,10 +53,7 @@ namespace Wait {
             else {
                 // other.
                 buf[idx++] = c;
-                if(idx == size) {
-                    idx = 0;
-                    memset(buf, 0, sizeof(buf));
-                }
+                if(idx == size) window_clear_input(buf, idx, size);
             }
         }
         return false;
@@ -108,13 +105,13 @@ namespace Wait {
                 break;
             }
         }
-        return Napi::Boolean::New(info.Env(), true);
+        return Napi::Boolean::New(info.Env(), response);
     }
 
     /** Suspends the execution until the desired line is typed. */
     Napi::Boolean waitLine(const Napi::CallbackInfo& info){
-        std::string expect = info[0].ToString().Utf8Value();
-
+        std::u16string expect = info[0].ToString().Utf16Value();
+        
         //
         // check timelimit.
         auto napi_timelimit = info[1];
@@ -124,21 +121,24 @@ namespace Wait {
         }
 
         bool response = false;
-        char buf[size]{ 0 };
+        char16_t buf[BUF_SIZE]{ 0 };
         size_t idx = 0;
         LARGE_INTEGER beg;
         QueryPerformanceFrequency(&freq);
         QueryPerformanceCounter(&beg);
         while(true){
-            if(window_read_input(buf, idx, size)){
-                if(std::string(buf) == expect) break;
-                else window_clear_input(buf, idx, size);
+            if(window_read_input(buf, idx, BUF_SIZE)){
+                if(std::u16string(buf) == expect) {
+                    response = true;
+                    break;
+                }
+                else window_clear_input(buf, idx, BUF_SIZE);
             }
             if( 0 <= timelimit && (uint64_t)timelimit <= window_get_elapsed(beg, MS) ){
                 break;
             }
         }
-        return Napi::Boolean::New(info.Env(), true);
+        return Napi::Boolean::New(info.Env(), response);
     }
 
     /** Suspends the execution until the enter is pressed. */
@@ -158,7 +158,7 @@ namespace Wait {
         while(true){
             if(_kbhit()){
                 auto c = _getch();
-                if(c == 10) {
+                if(c == 13) {
                     response = true;
                     break;
                 }
@@ -167,20 +167,20 @@ namespace Wait {
                 break;
             }
         }
-        return Napi::Boolean::New(info.Env(), true);
+        return Napi::Boolean::New(info.Env(), response);
     }
 
     /** Suspends the execution until the user confirms. */
     Napi::Boolean waitConfirm(const Napi::CallbackInfo &info){
-        std::string ystr = info[0].ToString().Utf8Value();
+        std::u16string ystr = info[0].ToString().Utf16Value();
 
         //
         // check nstr.
         auto napi_nstr = info[1];
         auto nstr_undefined = info[1].IsUndefined();
-        std::string nstr;
+        std::u16string nstr;
         if(!nstr_undefined){
-            nstr = info[1].ToString().Utf8Value();
+            nstr = info[1].ToString().Utf16Value();
         }
 
         //
@@ -192,21 +192,21 @@ namespace Wait {
         }
 
         bool response = false;
-        char buf[size]{ 0 };
+        char16_t buf[BUF_SIZE]{ 0 };
         size_t idx = 0;
         LARGE_INTEGER beg;
         QueryPerformanceFrequency(&freq);
         QueryPerformanceCounter(&beg);
         while(true){
-            if(window_read_input(buf, idx, size)){
-                if(std::string(buf) == ystr){
+            if(window_read_input(buf, idx, BUF_SIZE)){
+                if(std::u16string(buf) == ystr){
                     response = true;
                     break;
                 }
-                else if(nstr_undefined || (!nstr_undefined && std::string(buf) == nstr)){
+                else if(nstr_undefined || (!nstr_undefined && std::u16string(buf) == nstr)){
                     break;
                 }
-                window_clear_input(buf, idx, size);
+                window_clear_input(buf, idx, BUF_SIZE);
             }
             if( 0 <= timelimit && (uint64_t)timelimit <= window_get_elapsed(beg, MS) ){
                 break;
