@@ -54,8 +54,8 @@ export function waitLine(expect: string, timelimit?: number): boolean {
  * @warn Never use with async, this will pause sync also.
  * @param timelimit >Maximum time to wait (in milli-seconds, If undefined: no timeout)
  */
-export function waitEnter(timelimit?: number): void {
-    addon.waitEnter(timelimit);
+export function waitEnter(timelimit?: number): boolean {
+    return addon.waitEnter(timelimit);
 }
 
 /**
