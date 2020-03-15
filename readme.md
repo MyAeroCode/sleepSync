@@ -73,6 +73,10 @@ for (let i = 0; i < 10; i++) {
     console.log(i);
 
     //
+    // Wait until any key is pressed.
+    waitKey();
+
+    //
     // Wait for a key with the given ascii number to be pressed.
     // The code below waits for the ESC(ascii 27) key.
     waitKey(27);
