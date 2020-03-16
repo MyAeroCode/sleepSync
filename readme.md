@@ -83,7 +83,8 @@ for (let i = 0; i < 10; i++) {
 
     //
     // Wait only 333ms.
-    // Returns false if timeout.
+    // Return true  : if ESC is pressed.
+    // Return false : if timeout.
     waitKey(27, 333);
 }
 ```
@@ -104,7 +105,8 @@ for (let i = 0; i < 10; i++) {
 
     //
     // Wait only 333ms.
-    // Returns false if timeout.
+    // Return true  : if "Hello, World!" is entered.
+    // Return false : if timeout.
     waitLine("Hello, World!", 333);
 
     //
@@ -129,7 +131,8 @@ for (let i = 0; i < 10; i++) {
 
     //
     // Wait only 333ms.
-    // Returns false if timeout.
+    // Return true  : if Enter is pressed.
+    // Return false : if timeout.
     waitEnter(333);
 }
 ```
@@ -145,18 +148,20 @@ for (let i = 0; i < 10; i++) {
     console.log(i);
 
     //
-    // Returns true if "y" is entered.
-    // Returns false if anything else is entered.
+    // Return true  : if "y" is entered.
+    // Return false : if anything else is entered.
     if (waitConfirm("y")) break;
 
     //
-    // Returns true if "y" is entered.
-    // Returns false if "n" is entered.
-    // Retry if anything esle is entered.
+    // Return true  : if "y" is entered.
+    // Return false : if "n" is entered.
+    // Retry : if anything else is entered.
     if (waitConfirm("y", "n")) break;
 
     //
     // Wait only 333ms.
+    // Return true  : if "y" is entered.
+    // Return false : if anything else is entered or timeout.
     if (waitConfirm("y", undefined, 333)) break;
 
     //
