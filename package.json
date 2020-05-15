@@ -1,6 +1,6 @@
 {
     "name": "waait-sync",
-    "version": "1.2.2",
+    "version": "1.2.3",
     "description": "cross-platform synchronous sleep utils",
     "main": "out/index.js",
     "types": "out/index.d.ts",

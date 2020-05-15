@@ -19,7 +19,7 @@
 
 require :
 
--   cmake
+-   cmake (equal or above 2.8.12.2)
 -   c/c++ compiler
 
 ```shell
